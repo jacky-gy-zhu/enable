@@ -1,0 +1,79 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: ai-agent-system
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      write-dates-as-timestamps: false
+
+# OpenAI Configuration
+openai:
+  api-key: sk-OO7p1CfMcRawUDr1t-kNDpLaQPEhdM_1vDBqoQRc5VT3BlbkFJHkjyAytcqU3GvHIqYWBILYVfc5nWo3_XkHvSZ1iT4A
+  api-url: https://api.openai.com/v1
+  model: gpt-4o  # Available models: gpt-4, gpt-4-turbo, gpt-3.5-turbo, gpt-4o (if available)
+  max-tokens: 1000
+  temperature: 0.7
+
+# Agent Configuration
+agent:
+  # Keywords that trigger agent functionality
+  trigger-keywords:
+    - "agent"
+    - "tool"
+    - "function"
+    - "execute"
+    - "run"
+    - "perform"
+  
+  # MCP server configurations
+  mcp-servers:
+    filesystem:
+      name: "filesystem"
+      endpoint: "http://localhost:3001"
+      capabilities: ["file_operations", "directory_listing"]
+    database:
+      name: "database"
+      endpoint: "http://localhost:3002"
+      capabilities: ["query_execution", "schema_analysis"]
+    search:
+      name: "search"
+      endpoint: "http://localhost:3003"
+      capabilities: ["web_search", "document_search"]
+
+logging:
+  level:
+    com.enable: ${LOG_LEVEL:DEBUG}
+    org.springframework.web: INFO
+    org.springframework.boot: INFO
+    root: INFO
+  
+  # 日志文件配置
+  file:
+    # 日志文件路径和名称（可通过环境变量配置）
+    name: ${LOG_FILE_PATH:./logs/ai-agent-system.log}
+  
+  # 日志格式配置
+  pattern:
+    # 控制台输出格式
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%-5level) %clr([%thread]){faint} %clr(%logger{36}){cyan} %clr(:){faint} %msg%n"
+    # 文件输出格式  
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+  
+  # 日志轮转配置
+  logback:
+    rollingpolicy:
+      # 按时间和大小轮转的文件名模式
+      file-name-pattern: ${LOG_FILE_PATH:./logs/ai-agent-system.log}.%d{yyyy-MM-dd}.%i.gz
+      # 最大文件大小
+      max-file-size: ${LOG_MAX_FILE_SIZE:50MB}
+      # 保留天数
+      max-history: ${LOG_MAX_HISTORY:30}
+      # 总日志大小限制
+      total-size-cap: ${LOG_TOTAL_SIZE_CAP:2GB}
+      # 启动时清理过期文件
+      clean-history-on-start: true

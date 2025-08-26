@@ -1,0 +1,18 @@
+2025-08-26 16:43:09.456 INFO  [main] com.enable.Application - Starting Application using Java 21.0.8 with PID 62236 (/Users/jackyzhu/Projects/Work/Enable/enable/target/classes started by jackyzhu in /Users/jackyzhu/Projects/Work/Enable/enable)
+2025-08-26 16:43:09.457 DEBUG [main] com.enable.Application - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-26 16:43:09.457 INFO  [main] com.enable.Application - No active profile set, falling back to 1 default profile: "default"
+2025-08-26 16:43:09.758 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-08-26 16:43:09.760 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-26 16:43:09.761 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-08-26 16:43:09.775 INFO  [main] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-08-26 16:43:09.775 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 300 ms
+2025-08-26 16:43:09.880 INFO  [main] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-08-26 16:43:09.958 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/api'
+2025-08-26 16:43:09.961 INFO  [main] com.enable.Application - Started Application in 0.673 seconds (process running for 0.801)
+2025-08-26 16:43:14.954 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-26 16:43:14.954 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-26 16:43:14.955 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-26 16:43:15.007 INFO  [http-nio-8080-exec-4] c.e.ai.web.controller.ChatController - Created new chat session: 928e2f42-dacb-41d0-b5d6-18287e955127
+2025-08-26 16:43:18.809 INFO  [http-nio-8080-exec-5] c.e.ai.web.controller.ChatController - Received chat request for session: 928e2f42-dacb-41d0-b5d6-18287e955127
+2025-08-26 16:43:18.809 INFO  [http-nio-8080-exec-5] c.e.ai.agents.service.AgentService - Processing request without agent for session: 928e2f42-dacb-41d0-b5d6-18287e955127
+2025-08-26 16:43:18.896 ERROR [http-nio-8080-exec-5] i.n.r.d.DnsServerAddressStreamProviders - Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
